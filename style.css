@@ -1,0 +1,331 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.background_container {
+  position: relative;
+  overflow: hidden;
+}
+
+.background_container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/vanyausovich.jpg") no-repeat center center;
+  padding-top: 300px;
+  background-size: cover;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+header {
+  z-index: 1;
+}
+
+.main_events {
+  color: white;
+  z-index: 1;
+}
+.header_inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px black solid;
+}
+.logo_photo {
+  width: 90px;
+  height: auto;
+}
+.centered_info {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+.link_header {
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: transparent solid 2px;
+  transition: border-color 0.5s;
+}
+.link_header:hover {
+  color: #dc9f04;
+  border-bottom: #dc9f04 solid 2px;
+}
+.search_bar_and_icon {
+  position: relative;
+}
+.search_bar {
+  box-sizing: border-box;
+  padding: 12px 12px 12px 30px;
+  border-radius: 15px;
+
+  color: rgb(235, 229, 229);
+  text-align: center;
+  background: none;
+  outline: none;
+  border: 2px rgb(235, 229, 229) solid;
+
+  font-size: 15px;
+}
+.fa-magnifying-glass {
+  color: #8b8a8a;
+  position: absolute;
+
+  left: 35px;
+  bottom: 15px;
+}
+
+/* main section */
+.main_events {
+  z-index: 1;
+}
+.event_header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-top: 200px;
+}
+.book_and_carousel_of_events {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 220px;
+  margin-bottom: 50px;
+}
+.event_name_short {
+  font-weight: 700;
+  font-size: 60px;
+  color: #fff;
+
+  max-width: 25ch;
+  line-height: 1.4;
+}
+.event_description {
+  max-width: 50ch;
+  line-height: 1.6;
+}
+.button_and_icon {
+  position: relative;
+}
+
+.button_to_book {
+  background-color: rgb(255, 115, 0);
+  border-radius: 35px;
+  box-sizing: border-box;
+  padding: 25px 60px 25px 70px;
+  font-size: 17px;
+  color: #fff;
+  font-weight: 700;
+}
+.icon_calendar_for_main_screen {
+  position: absolute;
+  left: 45px;
+  top: 39%;
+}
+.forward_arrow {
+  font-size: 50px;
+}
+.backward_arrow {
+  font-size: 50px;
+  transform: rotate(180deg);
+  text-align: center;
+}
+/* list of events */
+.list_of_events {
+  background-color: #2c251b;
+}
+.inner_list_of_events {
+  box-sizing: border-box;
+  padding-top: 100px;
+}
+.top_text_for_all_events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.harmony_event_text {
+  font-size: 18px;
+  color: #dc9f04;
+}
+.main_text_event_listing {
+  font-size: 60px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.categories_for_events {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: center;
+
+  margin-top: 70px;
+}
+.each_event_category {
+  color: #fff;
+  font-size: 20px;
+  position: relative;
+}
+
+.each_event_category:hover {
+  color: #dc9f04;
+  transition: 0.5s;
+}
+
+.outside_box_event {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  margin-top: 80px;
+  border-bottom: transparent 2px solid;
+  transition: 0.5s;
+}
+.outside_box_event:hover {
+  border-bottom: #dc9f04 2px solid;
+}
+.outside_box_event:hover .price_for_ticket {
+  color: #fff;
+}
+.outside_box_event:hover .mini_info {
+  color: #dc9f04;
+}
+.outside_box_event:hover .block_outer_info {
+  background-color: #3d2c009c;
+}
+
+.outside_box_event:hover .fa-location-dot {
+  color: #dc9f04;
+}
+.outside_box_event:hover .fa-clock {
+  color: #dc9f04;
+}
+.outside_box_event:hover .fa-calendar-days {
+  color: #dc9f04;
+}
+.event_photo_for_listing {
+  width: 350px;
+}
+.right_part_of_event {
+  flex: 1;
+}
+.inner_text_of_right_part {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  background-color: black;
+
+  box-sizing: border-box;
+  padding: 20px;
+}
+.event_name_in_event_listing {
+  font-size: 35px;
+  font-weight: 700;
+  color: #fff;
+}
+.box_for_details {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.mini_info {
+  color: #474646;
+  font-size: 13px;
+  box-sizing: border-box;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 20px;
+
+  transition: 0.5s;
+}
+.block_outer_info {
+  background-color: #191718;
+  border-radius: 25px;
+
+  transition: 0.5s;
+  position: relative;
+}
+
+.fa-location-dot {
+  color: #8b8a8a;
+  position: absolute;
+  left: 25px;
+  bottom: 10px;
+
+  transition: 0.5s;
+}
+.fa-calendar-days {
+  color: #8b8a8a;
+  position: absolute;
+  left: 25px;
+  bottom: 10px;
+
+  transition: 0.5s;
+}
+.fa-clock {
+  color: #8b8a8a;
+  position: absolute;
+  left: 25px;
+  bottom: 10px;
+
+  transition: 0.5s;
+}
+.fa-calendar {
+  color: #8b8a8a;
+  position: absolute;
+  left: 17px;
+  bottom: 12px;
+
+  transition: 0.5s;
+}
+.description_of_event_listing {
+  font-size: 15px;
+  color: #fff;
+}
+.last_row_for_listing {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+
+  position: relative;
+}
+.button_to_book_in_listing {
+  background-color: #474646;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 10px 24px 10px 38px;
+  font-size: 15px;
+  color: #fff;
+  transition: 0.5s;
+}
+.button_to_book_in_listing:hover {
+  background-color: rgb(255, 115, 0);
+}
+.button_to_book_in_listing:hover .fa-calendar {
+  color: #fff;
+}
+.icon_calendar_for_listing {
+  position: absolute;
+  left: 45px;
+  top: 39%;
+}
+.price_for_ticket {
+  font-size: 20px;
+  font-weight: 700;
+  color: #bdb7b7;
+
+  transition: 0.5s;
+}
