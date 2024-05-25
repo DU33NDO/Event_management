@@ -9,7 +9,11 @@ body {
   position: relative;
   overflow: hidden;
 }
-
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
 .background_container::before {
   content: "";
   position: absolute;
@@ -24,6 +28,7 @@ body {
 
 header {
   z-index: 1;
+  background-color: rgba(0, 0, 0, 0.63);
 }
 
 .main_events {
@@ -126,6 +131,17 @@ header {
   font-size: 17px;
   color: #fff;
   font-weight: 700;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  transition: 0.5s;
+
+}
+.button_to_book:hover {
+  -webkit-box-shadow: 0px 0px 33px 19px rgba(255, 255, 255, 0.32);
+  -moz-box-shadow: 0px 0px 33px 19px rgba(255, 255, 255, 0.32);
+  box-shadow: 0px 0px 33px 19px rgba(255, 255, 255, 0.32);
 }
 .icon_calendar_for_main_screen {
   position: absolute;
@@ -172,13 +188,21 @@ header {
 
   margin-top: 70px;
 }
-.each_event_category {
+#each_event_category_all,
+#each_event_category_entertainment,
+#each_event_category_art,
+#each_event_category_study {
   color: #fff;
   font-size: 20px;
   position: relative;
+  cursor: pointer;
 }
 
-.each_event_category:hover {
+#each_event_category:hover,
+#each_event_category_all:hover,
+#each_event_category_entertainment:hover,
+#each_event_category_art:hover,
+#each_event_category_study:hover {
   color: #dc9f04;
   transition: 0.5s;
 }
@@ -186,20 +210,19 @@ header {
 .outside_box_event {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
 
   margin-top: 80px;
-  border-bottom: transparent 2px solid;
+  /* border-bottom: transparent 2px solid; */
   transition: 0.5s;
+  opacity: 0.5;
 }
 .outside_box_event:hover {
-  border-bottom: #dc9f04 2px solid;
+  /* border-bottom: #dc9f04 2px solid; */
+  opacity: 1;
 }
 .outside_box_event:hover .price_for_ticket {
   color: #fff;
-}
-.outside_box_event:hover .mini_info {
-  color: #dc9f04;
 }
 .outside_box_event:hover .block_outer_info {
   background-color: #3d2c009c;
@@ -216,6 +239,10 @@ header {
 }
 .event_photo_for_listing {
   width: 350px;
+  height: 230px;
+}
+.left_part_of_event {
+  background-color: black;
 }
 .right_part_of_event {
   flex: 1;
@@ -250,6 +277,10 @@ header {
 
   transition: 0.5s;
 }
+.mini_info:hover {
+  color: #dc9f04;
+}
+
 .block_outer_info {
   background-color: #191718;
   border-radius: 25px;
@@ -257,7 +288,9 @@ header {
   transition: 0.5s;
   position: relative;
 }
-
+.block_outer_info:hover {
+  background-color: #3d2c009c;
+}
 .fa-location-dot {
   color: #8b8a8a;
   position: absolute;
@@ -293,6 +326,7 @@ header {
 .description_of_event_listing {
   font-size: 15px;
   color: #fff;
+  line-height: 1.6;
 }
 .last_row_for_listing {
   display: flex;
@@ -328,4 +362,35 @@ header {
   color: #bdb7b7;
 
   transition: 0.5s;
+}
+/* button next */
+.box_for_button_more {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  margin-top: 60px;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+.next_values {
+  background-color: #8b8a8a;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 17px;
+  color: #fff;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  transition: 0.5s;
+}
+
+.next_values:hover {
+  background-color: rgb(255, 115, 0);
+  -webkit-box-shadow: 0px 0px 23px 19px rgba(255, 255, 255, 0.21);
+  -moz-box-shadow: 0px 0px 23px 19px rgba(255, 255, 255, 0.21);
+  box-shadow: 0px 0px 23px 19px rgba(255, 255, 255, 0.21);
 }

@@ -24,7 +24,7 @@
     ></script>
   </head>
   <body>
-    <div class="background_container">
+    <div class="background_container" id="background_container">
       <header>
         <div class="container">
           <div class="header_inner">
@@ -57,8 +57,8 @@
         <div class="container">
           <div class="section_inner">
             <div class="event_header">
-              <p class="event_name_short">ВАНЯ УСОВИЧ В АСТАНЕ!!</p>
-              <p class="event_description">
+              <p class="event_name_short" id="event_name_short">ВАНЯ УСОВИЧ В АСТАНЕ!!</p>
+              <p class="event_description" id="event_description">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
                 facere quis iste voluptates aut assumenda, culpa vitae odit
                 omnis voluptatum adipisci neque. At quas vel recusandae fugiat
@@ -66,7 +66,7 @@
               </p>
             </div>
             <div class="book_and_carousel_of_events">
-              <i class="fa-solid fa-arrow-right backward_arrow"></i>
+              <i class="fa-solid fa-arrow-right backward_arrow" id="backward_arrow"></i>
               <div class="button_and_icon">
                 <input
                   class="button_to_book"
@@ -74,10 +74,10 @@
                   value="Book Event"
                 />
                 <i
-                  class="fa-regular fa-calendar icon_calendar_for_main_screen"
+                  class="fa-regular fa-calendar icon_calendar_for_main_screen" 
                 ></i>
               </div>
-              <i class="fa-solid fa-arrow-right forward_arrow"></i>
+              <i class="fa-solid fa-arrow-right forward_arrow" id="forward_arrow"></i>
             </div>
           </div>
         </div>
@@ -91,56 +91,22 @@
             <p class="main_text_event_listing">Event Listing</p>
           </div>
           <div class="categories_for_events">
-            <p class="each_event_category">All Event</p>
-            <p class="each_event_category">Conference Event</p>
-            <p class="each_event_category">Play Groud Event</p>
-            <p class="each_event_category">Musical Event</p>
+            <p id="each_event_category_all">Все мероприятия</p>
+            <p id="each_event_category_entertainment">Развлечение</p>
+            <p id="each_event_category_art">Искусство</p>
+            <p id="each_event_category_study">Учебные</p>
           </div>
-
-          <div class="outside_box_event">
-            <div class="left_part_of_event">
-              <img
-                class="event_photo_for_listing"
-                src="./assets/vanyausovich.jpg"
-                alt=""
-              />
+          <section class="showed_events">
+            <div class="container">
+              <div class="box_for_all_fetched_blocks"></div>
             </div>
-            <div class="right_part_of_event">
-              <div class="inner_text_of_right_part">
-                <p class="event_name_in_event_listing">Stand-up: Ваня Усович</p>
-                <div class="box_for_details">
-                  <div class="block_outer_info">
-                    <p class="mini_info">28 Feb 2024</p>
-                    <i class="fa-solid fa-calendar-days"></i>
-                  </div>
-                  <div class="block_outer_info">
-                    <p class="mini_info">Start 20:00 - 24:00</p>
-                    <i class="fa-regular fa-clock"></i>
-                  </div>
-                  <div class="block_outer_info">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <p class="mini_info">Mangilik El 56/1</p>
-                  </div>
-                </div>
-                <p class="description_of_event_listing">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Assumenda soluta doloremque, quaerat nostrum animi
-                  perspiciatis saepe illo voluptatem? Animi, voluptatem!
-                </p>
-                <div class="last_row_for_listing">
-                  <input
-                    class="button_to_book_in_listing"
-                    type="button"
-                    value="Book Event"
-                  />
-                  <i class="fa-regular fa-calendar"></i>
-                  <p class="price_for_ticket">10000 tenge</p>
-                </div>
-              </div>
+            <div class="box_for_button_more">
+              <input class="next_values" type="button" value="Показать еще" />
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </section>
+    <script src="for_js.js"></script>
   </body>
 </html>
