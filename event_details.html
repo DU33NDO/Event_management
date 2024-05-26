@@ -1,0 +1,156 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet"
+        />
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="style_event_details.css" />
+        <script
+        src="https://kit.fontawesome.com/2092506835.js"
+        crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <div class="background_container">
+        <header>
+            <div class="container">
+            <div class="header_inner">
+                <img
+                class="logo_photo"
+                src="./assets/9391714.png"
+                alt="Photo of logo"
+                />
+                <div class="centered_info">
+                <a class="link_header" href="">Home</a>
+                <a class="link_header" href="">About us</a>
+                <a class="link_header" href="">Events</a>
+                <a class="link_header" href="">Blog</a>
+                <a class="link_header" href="">Events</a>
+                <a class="link_header" href="">Contact</a>
+                <a class="link_header" href="">Login</a>
+                </div>
+                <div class="search_bar_and_icon">
+                <input
+                    class="search_bar"
+                    type="text"
+                    placeholder="Search Event"
+                />
+                <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            </div>
+        </header>
+
+        <section class="heading_event_details">
+            <div class="container">
+            <div class="inner_heading_details">
+                <p class="title_event_details">Event Details</p>
+                <p class="title_event_path">Home / Event List / Event Details</p>
+            </div>
+            </div>
+        </section>
+        </div>
+        <section class="timer_part">
+        <div class="container">
+            <div class="block_for_timer">
+            <div class="inner_countdown">
+                <p id="title_for_countdown">Начнется через:</p>
+                <div class="block_for_days">
+                <p id="days_timer"></p>
+                <hr class="hr_line" />
+                <p class="days_text">Дней</p>
+                </div>
+                <p class="colon">:</p>
+                <div class="block_for_hours">
+                <p id="hours_timer"></p>
+                <hr class="hr_line" />
+                <p class="hours_text">Часов</p>
+                </div>
+                <p class="colon">:</p>
+                <div class="block_for_min">
+                <p id="min_timer"></p>
+                <hr class="hr_line" />
+                <p class="min_text">Минут</p>
+                </div>
+                <p class="colon">:</p>
+                <div class="block_for_sec">
+                <p id="sec_timer"></p>
+                <hr class="hr_line" />
+                <p class="sec_text">Секунд</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+        <section class="main_part">
+        <div class="container">
+            <div class="inner_main_part">
+            <img class="poster_photo" src="" alt="" />
+            <div class="more_details">
+                <div class="inner_more_details">
+                <div class="left_part">
+                    <div class="bullet_points_row">
+                    <div class="box_for_price">
+                        <p class="price_for_ticket">10000 тенге</p>
+                    </div>
+                    <div class="box_for_date">
+                        <p class="date_of_event">10.10.2020</p>
+                        <i class="fa-regular fa-calendar"></i>
+                    </div>
+                    <div class="box_for_time">
+                        <p class="time_for_event">20:00 - 22:00</p>
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    </div>
+                    <div class="part_for_title_and_description_event">
+                    <p class="title_event_fetch">WOW NO WAY</p>
+                    <p class="description_for_event">...</p>
+                    </div>
+                </div>
+                <div class="right_part">
+                    <div class="box_for_right_part">
+                    <p class="title_for_right_box">Event Details</p>
+                    <hr class="line_for_box" />
+                    <div class="info_event_right_box">
+                        <div class="price_right_box">
+                        <p class="title_info">Цена билета</p>
+                        <p class="ticket_price_fetch"></p>
+                        </div>
+                        <div class="event_date_right_box">
+                        <p class="title_info">Дата мероприятия</p>
+                        <p class="date_event_fetch"></p>
+                        </div>
+                        <div class="remaining_tickets_right_box">
+                        <p class="title_info">Осталось билетов</p>
+                        <p class="remaining_tickets_fetch">100 штук</p>
+                        </div>
+                        <div class="location_right_box">
+                        <p class="title_info">Адресс</p>
+                        <p class="location_fetch"></p>
+                        </div>
+                        <button class="book_event">Забронировать</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <script src="event_details.js"></script>
+    </body>
+    </html>

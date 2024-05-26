@@ -1,0 +1,235 @@
+@import url(https://db.onlinewebfonts.com/c/021f3eb1da35b2a042907dc870c00b9c?family=Twentieth+Century+W01+XtraBdCn);
+@font-face {
+  font-family: "Twentieth Century W01 XtraBdCn";
+  src: url("https://db.onlinewebfonts.com/t/021f3eb1da35b2a042907dc870c00b9c.eot");
+  src: url("https://db.onlinewebfonts.com/t/021f3eb1da35b2a042907dc870c00b9c.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/021f3eb1da35b2a042907dc870c00b9c.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/021f3eb1da35b2a042907dc870c00b9c.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/021f3eb1da35b2a042907dc870c00b9c.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/021f3eb1da35b2a042907dc870c00b9c.svg#Twentieth Century W01 XtraBdCn")
+      format("svg");
+}
+@import url(https://db.onlinewebfonts.com/c/6138beb83221f6eb46ed08543a304d1d?family=Twentieth+Century);
+@font-face {
+  font-family: "Twentieth Century";
+  src: url("https://db.onlinewebfonts.com/t/6138beb83221f6eb46ed08543a304d1d.eot");
+  src: url("https://db.onlinewebfonts.com/t/6138beb83221f6eb46ed08543a304d1d.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/6138beb83221f6eb46ed08543a304d1d.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/6138beb83221f6eb46ed08543a304d1d.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/6138beb83221f6eb46ed08543a304d1d.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/6138beb83221f6eb46ed08543a304d1d.svg#Twentieth Century")
+      format("svg");
+}
+body {
+  background-image: url(./assets/party_crowd.jpg);
+  font-family: "Montserrat", sans-serif;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/party_crowd.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(10px) brightness(0.4);
+  z-index: -1;
+}
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+header {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.63);
+}
+
+.main_events {
+  color: white;
+  z-index: 1;
+}
+.header_inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px black solid;
+}
+.logo_photo {
+  width: 90px;
+  height: auto;
+}
+.centered_info {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+.link_header {
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: transparent solid 2px;
+  transition: border-color 0.5s;
+}
+.link_header:hover {
+  color: #dc9f04;
+  border-bottom: #dc9f04 solid 2px;
+}
+.search_bar_and_icon {
+  position: relative;
+}
+.search_bar {
+  box-sizing: border-box;
+  padding: 12px 12px 12px 30px;
+  border-radius: 15px;
+
+  color: rgb(235, 229, 229);
+  text-align: center;
+  background: none;
+  outline: none;
+  border: 2px rgb(235, 229, 229) solid;
+
+  font-size: 15px;
+}
+.fa-magnifying-glass {
+  color: #8b8a8a;
+  position: absolute;
+
+  left: 35px;
+  bottom: 15px;
+}
+/* main part */
+
+.login {
+  margin-top: 100px;
+}
+.login__outer_box {
+  margin: 0 auto;
+  -webkit-box-shadow: 4px 1px 74px 0px rgba(242, 85, 0, 0.29);
+  -moz-box-shadow: 4px 1px 74px 0px rgba(242, 85, 0, 0.29);
+  box-shadow: 4px 1px 74px 0px rgba(242, 85, 0, 0.29);
+}
+.login__outer_box__inner_box__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login__outer_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login__outer_box__inner_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__outer_box__inner_box__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+
+  margin-top: 70px;
+}
+
+.login__outer_box__inner_box__title__text {
+  font-size: 60px;
+  font-weight: 700;
+  font-family: "Twentieth Century";
+  margin: 0 0 0 0;
+}
+.login__outer_box {
+  width: 700px;
+  height: 600px;
+  background-color: #dc9f04;
+}
+/* inputs */
+.login__outer_box__inner_box__inputs__login,
+.login__outer_box__inner_box__inputs__password {
+  width: 300px;
+  height: 35px;
+  color: black;
+  box-sizing: border-box;
+  padding-left: 10px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
+}
+.login__outer_box__inner_box__inputs__btn {
+  width: 150px;
+  height: 40px;
+  background-color: none;
+  outline: none;
+  border: none;
+  transition-duration: 0.4s;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.login__outer_box__inner_box__inputs__btn:hover {
+  background-color: #fff200;
+  color: black;
+}
+
+.login__outer_box__reminder__helper {
+  font-size: 20px;
+  font-family: "Twentieth Century";
+  font-weight: 700;
+  color: black;
+}
+.login__outer_box__reminder__link {
+  text-decoration: none;
+  color: red;
+  transition-duration: 0.4s;
+}
+.login__outer_box__reminder__link:hover {
+  color: #752d0b;
+}
+
+.login__outer_box__home_link {
+  width: 120px;
+  height: 25px;
+  background-color: #fff;
+  transition-duration: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.login__outer_box__home_link:hover {
+  background-color: black;
+}
+.login__outer_box__home_link:hover .login__outer_box__home_link__a {
+  color: #ffffff;
+}
+.login__outer_box__home_link__a {
+  font-size: 15px;
+  font-family: "Twentieth Century";
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+  transition-duration: 0.4s;
+}

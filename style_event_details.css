@@ -1,0 +1,313 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #131112;
+}
+p {
+  color: #fff;
+}
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.background_container {
+  position: relative;
+  overflow: hidden;
+}
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.background_container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/party_crowd.jpg") no-repeat center center;
+  padding-top: 300px;
+  background-size: cover;
+  filter: blur(7px);
+  z-index: -1;
+  filter: brightness(50%);
+}
+
+header {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.63);
+}
+
+.main_events {
+  color: white;
+  z-index: 1;
+}
+.header_inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px black solid;
+}
+.logo_photo {
+  width: 90px;
+  height: auto;
+}
+.centered_info {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+.link_header {
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: transparent solid 2px;
+  transition: border-color 0.5s;
+}
+.link_header:hover {
+  color: #dc9f04;
+  border-bottom: #dc9f04 solid 2px;
+}
+.search_bar_and_icon {
+  position: relative;
+}
+.search_bar {
+  box-sizing: border-box;
+  padding: 12px 12px 12px 30px;
+  border-radius: 15px;
+
+  color: rgb(235, 229, 229);
+  text-align: center;
+  background: none;
+  outline: none;
+  border: 2px rgb(235, 229, 229) solid;
+
+  font-size: 15px;
+}
+.fa-magnifying-glass {
+  color: #8b8a8a;
+  position: absolute;
+
+  left: 35px;
+  bottom: 15px;
+}
+/* heading */
+.heading_event_details {
+  margin-top: 150px;
+  box-sizing: border-box;
+  padding-bottom: 200px;
+}
+.inner_heading_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+}
+.title_event_details {
+  font-size: 70px;
+  font-weight: 700;
+}
+.title_event_path {
+  font-size: 20px;
+}
+/* main part */
+.block_for_timer {
+  background-color: #ce9e366b;
+  box-sizing: border-box;
+  padding: 40px;
+}
+.timer_part {
+  margin-top: 150px;
+}
+.inner_countdown {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+#title_for_countdown {
+  font-size: 45px;
+  font-weight: 700;
+}
+.block_for_days,
+.block_for_hours,
+.block_for_min,
+.block_for_sec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.hr_line {
+  width: 30px;
+  border-top: 1px solid #333;
+}
+#days_timer,
+#hours_timer,
+#min_timer,
+#sec_timer {
+  font-weight: 700;
+  font-size: 35px;
+}
+.days_text,
+.hours_text,
+.min_text,
+.sec_text {
+  font-size: 25px;
+}
+
+/* main part */
+.main_part {
+  margin-top: 120px;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+.poster_photo {
+  width: 100%;
+}
+.inner_more_details {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.left_part {
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.bullet_points_row {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+}
+.box_for_price,
+.box_for_date,
+.box_for_time {
+  outline: none;
+  background-color: transparent;
+  border-radius: 15px;
+  position: relative;
+}
+
+.price_for_ticket,
+.date_of_event,
+.time_for_event {
+  font-size: 20px;
+  transition: 0.5s;
+  box-sizing: border-box;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.date_of_event,
+.time_for_event {
+  padding-left: 50px;
+}
+.price_for_ticket:hover,
+.date_of_event:hover,
+.time_for_event:hover {
+  font-weight: 700;
+  background-color: #f57803;
+}
+
+.fa-calendar {
+  position: absolute;
+  color: #fff;
+
+  left: 20px;
+  top: 12px;
+}
+.fa-clock {
+  position: absolute;
+  color: #fff;
+
+  left: 20px;
+  top: 12px;
+}
+.part_for_title_and_description_event {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title_event_fetch {
+  font-size: 50px;
+  font-weight: 700;
+}
+.description_for_event {
+  font-size: 15px;
+  line-height: 2;
+}
+
+/* right part*/
+
+.box_for_right_part {
+  border: 1px solid #8b8a8a;
+}
+.box_for_right_part {
+  box-sizing: border-box;
+  padding: 50px;
+}
+.title_for_right_box {
+  text-align: center;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+.line_for_box {
+  width: 100%;
+  border: 1px #8b8a8a solid;
+}
+
+.info_event_right_box {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+.price_right_box,
+.event_date_right_box,
+.remaining_tickets_right_box,
+.location_right_box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.title_info {
+  color: #f57803;
+  font-size: 15px;
+  text-align: center;
+}
+.ticket_price_fetch,
+.date_event_fetch,
+.remaining_tickets_fetch,
+.location_fetch {
+  font-size: 15px;
+  text-align: center;
+}
+.book_event {
+  background-color: rgb(255, 115, 0);
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 20px;
+  font-size: 17px;
+  color: #fff;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  transition: 0.5s;
+}
+.book_event:hover {
+  -webkit-box-shadow: 0px 0px 33px 19px rgba(255, 255, 255, 0.32);
+  -moz-box-shadow: 0px 0px 33px 19px rgba(255, 255, 255, 0.32);
+  box-shadow: 0px 0px 33px 19px rgba(255, 255, 255, 0.32);
+}

@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api, Resource, reqparse
 from datetime import datetime
 from flask_cors import CORS
+import hashlib
 
 
 app = Flask(__name__)
@@ -24,6 +25,16 @@ class Event(db.Model):
     price_for_ticket = db.Column(db.Integer, nullable=True)
     type_of_event = db.Column(db.String(256), nullable=True)
     poster_url = db.Column(db.String(256), nullable=True)
+
+
+class Users(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    login = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+
+    def __repr__(self):
+        return f'<User {self.username}>'
 
 
 event_parser = reqparse.RequestParser()
@@ -62,6 +73,26 @@ event_parser.add_argument(
 )
 event_parser.add_argument(
     "poster_url", type=str, required=True, help="Poster of the event is required!!"
+)
+
+
+user_parser = reqparse.RequestParser()
+user_parser.add_argument(
+    "username", type=str, required=True, help="Username is required"
+)
+user_parser.add_argument(
+    "login", type=str, required=True, help="Login is required"
+)
+user_parser.add_argument(
+    "password", type=str, required=True, help="Password is required"
+)
+
+log_user_parser = reqparse.RequestParser()
+log_user_parser.add_argument(
+    "login", type=str, required=True, help="Login is required"
+)
+log_user_parser.add_argument(
+    "password", type=str, required=True, help="Password is required"
 )
 
 
@@ -169,6 +200,47 @@ def add_event():
         ),
         201,
     )
+
+
+@app.route('/register', methods=['POST'])
+def register_user():
+    args = user_parser.parse_args()
+    username = args["username"]
+    login = args["login"]
+    password = args["password"]
+
+    if len(password) < 8:
+        return jsonify({"message": "Пароль должен быть больше 8 символов"}), 400
+
+    existing_user = Users.query.filter_by(login=login).first()
+    if existing_user:
+        return jsonify({"message": "Такой логин уже существует("}), 400
+
+    hash_password = hashlib.sha256(password.encode())
+    hash_new_password = hash_password.hexdigest()
+
+    new_user = Users(username=username, login=login, password=hash_new_password)
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({"message": "Регистрация прошла успешно!"}), 201
+
+
+@app.route('/login', methods=['POST'])
+def login_user():
+    args = log_user_parser.parse_args()
+    login = args["login"]
+    password = args["password"]
+
+    hash_password = hashlib.sha256(password.encode())
+    hash_new_password = hash_password.hexdigest()
+
+    user = Users.query.filter_by(login=login).first()
+
+    if user.password == hash_new_password and user:
+        return jsonify({"message": "Вы вошли в аккаунт!"}), 200
+    else: 
+        return jsonify({"message": "Неверный пароль или логин("})
 
 
 if __name__ == "__main__":

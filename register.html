@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="for_register.css" />
+    <link
+      href="https://db.onlinewebfonts.com/c/165b3175b1345c0eb8b4097f4d024455?family=Century"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/6138beb83221f6eb46ed08543a304d1d?family=Twentieth+Century"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/021f3eb1da35b2a042907dc870c00b9c?family=Twentieth+Century+W01+XtraBdCn"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
+    <script src="reset.css"></script>
+  </head>
+  <body>
+    <header>
+        <div class="container">
+          <div class="header_inner">
+            <img
+              class="logo_photo"
+              src="./assets/9391714.png"
+              alt="Photo of logo"
+            />
+            <div class="centered_info">
+              <a class="link_header" href="">Home</a>
+              <a class="link_header" href="">About us</a>
+              <a class="link_header" href="">Events</a>
+              <a class="link_header" href="">Blog</a>
+              <a class="link_header" href="">Events</a>
+              <a class="link_header" href="">Contact</a>
+              <a class="link_header" href="">Login</a>
+            </div>
+            <div class="search_bar_and_icon">
+              <input
+                class="search_bar"
+                type="text"
+                placeholder="Search Event"
+              />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+        </div>
+      </header>
+    <section class="register">
+      <div class="container">
+        <div class="register__outer_box">
+          <div class="register__outer_box__inner_box">
+            <div class="register__outer_box__inner_box__title">
+              <p class="register__outer_box__inner_box__title__text">
+                REGISTER
+              </p>
+            </div>
+            <div class="register__outer_box__inner_box__inputs">
+              <input
+                type="text"
+                id="username"
+                class="register__outer_box__inner_box__inputs__username"
+                placeholder="Name"
+              />
+              <input
+                type="text"
+                id="login"
+                class="register__outer_box__inner_box__inputs__login"
+                placeholder="Login"
+              />
+              <input
+                type="password"
+                minlength="8"
+                id="password"
+                class="register__outer_box__inner_box__inputs__password"
+                placeholder="Password"
+              />
+              <input
+                type="password"
+                id="r_password"
+                class="register__outer_box__inner_box__inputs__r_password"
+                placeholder="Repeat Password"
+                minlength="8"
+              />
+              <button
+                class="register__outer_box__inner_box__inputs__register_btn"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+          <div class="register__outer_box__home_link">
+            <a class="register__outer_box__home_link__a" href="./index.html"
+              >Back Home</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="for_register.js"></script>
+  </body>
+</html>

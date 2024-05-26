@@ -2,12 +2,16 @@ let eventAPI = "http://localhost:5000/events";
 const box_for_fetch = document.querySelector(".box_for_all_fetched_blocks");
 const all_types_of_event = document.querySelector(".categories_for_events");
 
-const selected_type_all = document.querySelector('#each_event_category_all');
-const selected_type_entertainment = document.querySelector('#each_event_category_entertainment');
-const selected_type_art = document.querySelector('#each_event_category_art');
-const selected_type_education = document.querySelector('#each_event_category_study');
+const selected_type_all = document.querySelector("#each_event_category_all");
+const selected_type_entertainment = document.querySelector(
+  "#each_event_category_entertainment"
+);
+const selected_type_art = document.querySelector("#each_event_category_art");
+const selected_type_education = document.querySelector(
+  "#each_event_category_study"
+);
 
-const button_next = document.querySelector('.next_values')
+const button_next = document.querySelector(".next_values");
 function mainFetch() {
   fetch(eventAPI)
     .then((response) => response.json())
@@ -77,11 +81,10 @@ function mainFetch() {
         const durationHours = Math.floor(duration / (1000 * 60 * 60));
         const durationDays = Math.floor(duration / (1000 * 60 * 60 * 24));
         if (durationDays === 0) {
-            mini_info_time.textContent = `Длительность: ${durationHours} часов`;
+          mini_info_time.textContent = `Длительность: ${durationHours} часов`;
         } else {
-            mini_info_time.textContent = `Длительность: ${durationDays} дней`;
+          mini_info_time.textContent = `Длительность: ${durationDays} дней`;
         }
-        
 
         button_to_book_in_listing.textContent = "Забронировать";
         poster_image.src = element.poster_url;
@@ -92,6 +95,9 @@ function mainFetch() {
           element.description.substring(0, 100) + "...";
         price_for_ticket.textContent = `${element.price_for_ticket} тенге`;
 
+        outside_box_event.onclick = function () {
+          redirectToEventDetails(element.event_id);
+        };
         box_for_fetch.appendChild(outside_box_event);
 
         outside_box_event.appendChild(left_part_of_event);
@@ -118,36 +124,37 @@ function mainFetch() {
         last_row_for_listing.appendChild(button_to_book_in_listing);
         last_row_for_listing.appendChild(fa_icon_calendar_to_buy);
         last_row_for_listing.appendChild(price_for_ticket);
-
       });
     });
 }
 
-selected_type_all.addEventListener("click", function() {
-    eventAPI = "http://localhost:5000/events";
-    box_for_fetch.innerHTML = ''
-    mainFetch()
-})
+function redirectToEventDetails(eventId) {
+  window.location.href = `event_details.html?event_id=${eventId}`;
+}
 
-selected_type_entertainment.addEventListener("click", function() {
-    eventAPI = "http://localhost:5000/events/entertainment";
-    box_for_fetch.innerHTML = ''
-    mainFetch()
-})
+selected_type_all.addEventListener("click", function () {
+  eventAPI = "http://localhost:5000/events";
+  box_for_fetch.innerHTML = "";
+  mainFetch();
+});
 
-selected_type_art.addEventListener("click", function() {
-    eventAPI = "http://localhost:5000/events/art";
-    box_for_fetch.innerHTML = ''
-    mainFetch()
-})
+selected_type_entertainment.addEventListener("click", function () {
+  eventAPI = "http://localhost:5000/events/entertainment";
+  box_for_fetch.innerHTML = "";
+  mainFetch();
+});
 
-selected_type_education.addEventListener("click", function() {
-    eventAPI = "http://localhost:5000/events/education";
-    box_for_fetch.innerHTML = ''
-    mainFetch()
-})
+selected_type_art.addEventListener("click", function () {
+  eventAPI = "http://localhost:5000/events/art";
+  box_for_fetch.innerHTML = "";
+  mainFetch();
+});
+
+selected_type_education.addEventListener("click", function () {
+  eventAPI = "http://localhost:5000/events/education";
+  box_for_fetch.innerHTML = "";
+  mainFetch();
+});
 window.onload = mainFetch;
 
-button_next.addEventListener("click", function() {
-
-})
+button_next.addEventListener("click", function () {});
