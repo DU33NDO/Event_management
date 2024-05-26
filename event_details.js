@@ -31,11 +31,10 @@ function updateEventDetails(eventData) {
   const placeForDateBox = document.querySelector(".date_event_fetch");
   const placeForAddress = document.querySelector(".location_fetch");
 
-  const placeForAllTickets = document.querySelector(".remaining_tickets_fetch");
-
   placeForPoster.src = eventData.poster_url;
   placeForPrice.textContent = eventData.price_for_ticket + " тенге";
   placeForDateBox.textContent = formatDate(eventData.date_of_event_start);
+  placeForDate.textContent = formatDate(eventData.date_of_event_start);
   placeForTitle.textContent = eventData.name;
   placeForTime.textContent = formatTime(
     eventData.date_of_event_start,
