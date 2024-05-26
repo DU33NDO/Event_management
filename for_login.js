@@ -18,6 +18,7 @@ BtnSend.addEventListener("click", function () {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
+      credentials: "include",
     })
       .then((response) => response.json())
       .then((answer) => {
@@ -27,7 +28,7 @@ BtnSend.addEventListener("click", function () {
           alert(answer.message);
           window.location.href = "./index.html";
         }
-      })
+      });
   } else {
     alert("Введите логин и пароль");
   }

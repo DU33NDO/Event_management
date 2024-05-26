@@ -98,6 +98,7 @@ function mainFetch() {
         outside_box_event.onclick = function () {
           redirectToEventDetails(element.event_id);
         };
+
         box_for_fetch.appendChild(outside_box_event);
 
         outside_box_event.appendChild(left_part_of_event);
@@ -132,6 +133,7 @@ function redirectToEventDetails(eventId) {
   window.location.href = `event_details.html?event_id=${eventId}`;
 }
 
+
 selected_type_all.addEventListener("click", function () {
   eventAPI = "http://localhost:5000/events";
   box_for_fetch.innerHTML = "";
@@ -157,4 +159,4 @@ selected_type_education.addEventListener("click", function () {
 });
 window.onload = mainFetch;
 
-button_next.addEventListener("click", function () {});
+// button_next.addEventListener("click", function () {});

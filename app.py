@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask import session
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api, Resource, reqparse
 from datetime import datetime
@@ -7,11 +8,12 @@ import hashlib
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 api = Api(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://new_user:123@localhost/Events"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config['SECRET_KEY'] = 'dogs'
 db = SQLAlchemy(app)
 
 
@@ -22,9 +24,9 @@ class Event(db.Model):
     date_of_event_end = db.Column(db.DateTime, nullable=False)
     description = db.Column(db.String(256), nullable=False)
     address = db.Column(db.String(256), nullable=False)
-    price_for_ticket = db.Column(db.Integer, nullable=True)
-    type_of_event = db.Column(db.String(256), nullable=True)
-    poster_url = db.Column(db.String(256), nullable=True)
+    price_for_ticket = db.Column(db.Integer, nullable=False)
+    type_of_event = db.Column(db.String(256), nullable=False)
+    poster_url = db.Column(db.String(256), nullable=False)
 
 
 class Users(db.Model):
@@ -32,9 +34,29 @@ class Users(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     login = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
+    is_in_account = db.Column(db.Boolean, nullable=False, default=False)
 
     def __repr__(self):
         return f'<User {self.username}>'
+
+
+class Ticket(db.Model):
+    ticket_id = db.Column(db.Integer, primary_key=True)
+    event_id = db.Column(db.Integer, db.ForeignKey('event.event_id'), nullable=False)
+    is_purchased = db.Column(db.Boolean, nullable=False, default=False)
+
+
+class Purchase(db.Model):
+    purchase_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    tickets = db.relationship('Ticket', secondary='ticket_purchase_association', backref='purchases')
+
+
+ticket_purchase_association = db.Table(
+    'ticket_purchase_association',
+    db.Column('ticket_id', db.Integer, db.ForeignKey('ticket.ticket_id')),
+    db.Column('purchase_id', db.Integer, db.ForeignKey('purchase.purchase_id'))
+)
 
 
 event_parser = reqparse.RequestParser()
@@ -86,6 +108,7 @@ user_parser.add_argument(
 user_parser.add_argument(
     "password", type=str, required=True, help="Password is required"
 )
+
 
 log_user_parser = reqparse.RequestParser()
 log_user_parser.add_argument(
@@ -158,6 +181,20 @@ def get_event_by_id(target_id):
             }
         )
 
+@app.route("/purchase/<int:target_id>", methods=["GET"])
+def get_event_purchase_by_id(target_id):
+    tickets = Ticket.query.filter_by(event_id=target_id).all()
+    if tickets is None:
+        return jsonify({"message": "Tickets not found"}), 404
+    else:
+        return jsonify([
+            {
+                "ticket_id": ticket.ticket_id,
+                "event_id": ticket.event_id,
+                "is_purchased": ticket.is_purchased
+            } for ticket in tickets
+            ]
+        )
 
 @app.route("/events", methods=["POST"])
 def add_event():
@@ -238,9 +275,39 @@ def login_user():
     user = Users.query.filter_by(login=login).first()
 
     if user.password == hash_new_password and user:
+        session['user_id'] = user.id 
+        user.is_in_account = True  
+        db.session.commit()
         return jsonify({"message": "Вы вошли в аккаунт!"}), 200
     else: 
         return jsonify({"message": "Неверный пароль или логин("})
+
+
+@app.route('/logout', methods=['POST'])
+def logout_user():
+    user_id = session.get('user_id')
+    if user_id:
+        user = Users.query.get(user_id)
+        user.is_in_account = False  
+        db.session.commit()
+        session.pop('user_id') 
+        return jsonify({"message": "Вы вышли из аккаунта"}), 200
+    else:
+        return jsonify({"message": "Вы не вошли в аккаунт"}), 400
+
+
+@app.route('/is_logged_in', methods=['GET'])
+def is_logged_in():
+    if 'user_id' in session:
+        return jsonify({"logged_in": True}), 200
+    else:
+        return jsonify({"logged_in": False}), 200
+    
+    
+@app.route("/tickets/count/<int:event_id>", methods=["GET"])
+def get_tickets_count(event_id):
+    tickets_count = Ticket.query.filter_by(event_id=event_id).count()
+    return jsonify({"tickets_count": tickets_count}), 200
 
 
 if __name__ == "__main__":

@@ -1,0 +1,153 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #131112;
+}
+p {
+  color: #fff;
+}
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.background_container {
+  position: relative;
+  overflow: hidden;
+}
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.background_container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/party_crowd.jpg") no-repeat center center;
+  padding-top: 300px;
+  background-size: cover;
+  filter: blur(7px);
+  z-index: -1;
+  filter: brightness(50%);
+}
+
+header {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.63);
+}
+
+.main_events {
+  color: white;
+  z-index: 1;
+}
+.header_inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px black solid;
+}
+.logo_photo {
+  width: 90px;
+  height: auto;
+}
+.centered_info {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+.link_header {
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: transparent solid 2px;
+  transition: border-color 0.5s;
+}
+.link_header:hover {
+  color: #dc9f04;
+  border-bottom: #dc9f04 solid 2px;
+}
+.search_bar_and_icon {
+  position: relative;
+}
+.search_bar {
+  box-sizing: border-box;
+  padding: 12px 12px 12px 30px;
+  border-radius: 15px;
+
+  color: rgb(235, 229, 229);
+  text-align: center;
+  background: none;
+  outline: none;
+  border: 2px rgb(235, 229, 229) solid;
+
+  font-size: 15px;
+}
+.fa-magnifying-glass {
+  color: #8b8a8a;
+  position: absolute;
+
+  left: 35px;
+  bottom: 15px;
+}
+/*title  */
+.title_of_section {
+  margin-top: 150px;
+  box-sizing: border-box;
+  padding-bottom: 200px;
+}
+.inner_title_of_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.buy_ticket_text {
+  font-size: 70px;
+  font-weight: 700;
+}
+/* main part*/
+.main_part {
+  margin-top: 150px;
+}
+.box_for_purchase {
+  box-sizing: border-box;
+  padding-bottom: 100px;
+}
+.inner_box_for_purchase {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  border: 1px solid #fff;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  box-sizing: border-box;
+  padding: 20px;
+}
+.block_for_ticket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+  color: #fff;
+  cursor: pointer;
+}
+.box_for_words {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.select_ticekt_text {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.sold_out_message {
+  color: red;
+  font-size: 70px;
+  font-weight: 700;
+}
